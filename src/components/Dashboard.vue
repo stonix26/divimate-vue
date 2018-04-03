@@ -17,6 +17,7 @@
                     <th scope="col">File Path</th>
                     <th scope="col">Designer</th>
                     <th scope="col">Amazon Link</th>
+                    <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,7 @@
                     <td>{{author.file_path}}</td>
                     <td>{{author.designer}}</td>
                     <td>{{author.amazon_link}}</td>
+                    <td class="text-center"><router-link to="/view-author"><i class="fa fa-eye"></i></router-link></td>
                 </tr>
             </tbody>
         </table>
@@ -66,5 +68,8 @@ export default {
 <style scoped>
 .btn {
     margin: 25px auto !important;
+}
+.fa-eye {
+    color: #343a40;
 }
 </style>
