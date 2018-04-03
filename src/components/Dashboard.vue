@@ -20,53 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
-                </tr>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
-                </tr>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
-                </tr>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
-                </tr>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
-                </tr>
-                <tr>
-                    <td>Mark Otoo</td>
-                    <td>Basic</td>
-                    <td>Launched</td>
-                    <td>\\file-02</td>
-                    <td>Jess Muana</td>
-                    <td>amazon.com</td>
+                <tr v-for="author in authors" v-bind:key="author.id">
+                    <td>{{author.author_name}}</td>
+                    <td>{{author.service_type}}</td>
+                    <td>{{author.progress_status}}</td>
+                    <td>{{author.file_path}}</td>
+                    <td>{{author.designer}}</td>
+                    <td>{{author.amazon_link}}</td>
                 </tr>
             </tbody>
         </table>
@@ -74,10 +34,32 @@
 </template>
 
 <script>
+import db from './firebaseInit'
 export default {
     name: 'Dashboard',
     data() {
-        return {}
+        return {
+            authors: [],
+            loading: true
+        }
+    },
+
+    created() {
+        db.collection('authors').orderBy('author_name').get().then(querySnapshot => {
+            this.loading = false
+            querySnapshot.forEach(doc => {
+                const data = {
+                    id: doc.id,
+                    author_name: doc.data().author_name,
+                    service_type: doc.data().service_type,
+                    progress_status: doc.data().progress_status,
+                    file_path: doc.data().file_path,
+                    designer: doc.data().designer,
+                    amazon_link: doc.data().amazon_link
+                }
+                this.authors.push(data)
+            });
+        })
     }
 }
 </script>
