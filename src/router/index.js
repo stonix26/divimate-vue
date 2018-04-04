@@ -25,7 +25,7 @@ export default new Router({
       component: EditAuthor
     },
     {
-      path: '/:author_id',
+      path: '/:slug',
       name: 'view-author',
       component: ViewAuthor
     }

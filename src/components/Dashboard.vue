@@ -28,7 +28,7 @@
                     <td>{{author.file_path}}</td>
                     <td>{{author.designer}}</td>
                     <td>{{author.amazon_link}}</td>
-                    <td class="text-center"><router-link to="/view-author"><i class="fa fa-eye"></i></router-link></td>
+                    <td class="text-center"><router-link v-bind:to="{name: 'view-author', params: {slug: author.slug}}"><i class="fa fa-eye"></i></router-link></td>
                 </tr>
             </tbody>
         </table>
@@ -57,7 +57,8 @@ export default {
                     progress_status: doc.data().progress_status,
                     file_path: doc.data().file_path,
                     designer: doc.data().designer,
-                    amazon_link: doc.data().amazon_link
+                    amazon_link: doc.data().amazon_link,
+                    slug: doc.data().slug
                 }
                 this.authors.push(data)
             });
