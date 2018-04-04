@@ -7,49 +7,62 @@
         </div>
         <div class="row">
             <div class="col">
-                <form>
+                <form @submit.prevent="saveAuthor">
                     <div class="form-group">
                         <label>Author's Name</label>
-                        <input type="text" class="form-control" required>
+                        <input type="text" v-model="author_name" class="form-control" required>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Service Type</label>
-                            <select class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                            <select v-model="service_type" class="form-control">
+                                <option value="" selected disabled>Choose...</option>
+                                <option>Basic</option>
+                                <option>Deluxe</option>
+                                <option>Premium</option>
+                                <option>Silver</option>
+                                <option>Platinum</option>
+                                <option>Gold</option>
                             </select>
                         </div>
                         <div class="form-group col-md-6">
                             <label>Progress Status</label>
-                            <select class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                            <select v-model="progress_status" class="form-control">
+                                <option value="" selected disabled>Choose...</option>
+                                <option>Template (Design Draft Creation)</option>
+                                <option>Demo (Mockup and Contents Creation)</option>
+                                <option>Live</option>
+                                <option>Launched</option>
+                                <option>End of Service</option>
+                                <option>Cancelled</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label>File Path</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" v-model="file_path" class="form-control" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Designer</label>
-                            <select class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
+                            <select v-model="designer" class="form-control">
+                                <option value="" selected disabled>Choose...</option>
+                                <option>Jess</option>
+                                <option>Randy</option>
+                                <option>Roy</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">
                             <label>Amazon Link</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" v-model="amazon_link" class="form-control" required>
                         </div>
                         <div class="form-group col-md-12">
                             <label>Notes</label>
-                            <textarea class="form-control" rows="8" required></textarea>
+                            <textarea v-model="notes" class="form-control" rows="8" required></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-dark btn-lg"><i class="fa fa-save"></i> Submit</button>
+                    <router-link to="/" class="btn btn-outline-dark btn-lg"><i class="fa fa-arrow-left"></i> Cancel</router-link>
+                    <button type="submit" class="btn btn-dark btn-lg"><i class="fa fa-cloud"></i> Submit</button>
                 </form>
             </div>
         </div>
@@ -57,10 +70,40 @@
 </template>
 
 <script>
+import db from './firebaseInit'
 export default {
     name: 'new-author',
     data() {
-        return {}
+        return {
+            author_name: null,
+            service_type: null,
+            progress_status: null,
+            file_path: null,
+            designer: null,
+            amazon_link: null,
+            notes: null
+        }
+    },
+
+    methods: {
+        saveAuthor() {
+            db.collection('authors').add({
+                author_name: this.author_name,
+                service_type: this.service_type,
+                progress_status: this.progress_status,
+                file_path: this.file_path,
+                designer: this.designer,
+                amazon_link: this.amazon_link,
+                notes: this.notes
+            })
+            .then(docRef => {
+                console.log('Author added: ', docRef.id)
+                this.$router.push('/')
+            })
+            .catch(error => {
+                console.error('Error adding author: ', error)
+            })
+        }
     }
 }
 </script>
