@@ -94,7 +94,8 @@ export default {
                 file_path: this.file_path,
                 designer: this.designer,
                 amazon_link: this.amazon_link,
-                notes: this.notes
+                notes: this.notes,
+                slug: this.generateUUID()
             })
             .then(docRef => {
                 console.log('Author added: ', docRef.id)
@@ -103,6 +104,16 @@ export default {
             .catch(error => {
                 console.error('Error adding author: ', error)
             })
+        },
+
+        generateUUID() {
+            let d = new Date().getTime()
+            let uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+                let r = (d + Math.random() * 16) % 16 | 0
+                d = Math.floor(d / 16)
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+            })
+            return uuid
         }
     }
 }
