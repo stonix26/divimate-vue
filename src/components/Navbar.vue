@@ -4,7 +4,7 @@
         <nav class="my-2 my-md-0 mr-md-3">
             <router-link class="nav-link text-white" to="/">Dashboard</router-link>
         </nav>
-        <router-link class="btn btn-outline-light" to="/">Login <i class="fa fa-sign-in"></i></router-link>
+        <router-link class="btn btn-outline-light" to="/login">Login <i class="fa fa-sign-in"></i></router-link>
     </div>
 </template>
 

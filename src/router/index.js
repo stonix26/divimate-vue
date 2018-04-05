@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
+import Login from '@/components/Login'
 import NewAuthor from '@/components/NewAuthor'
 import UpdateAuthor from '@/components/UpdateAuthor'
 import ViewAuthor from '@/components/ViewAuthor'
@@ -13,6 +14,11 @@ export default new Router({
       path: '/',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/new-author',
