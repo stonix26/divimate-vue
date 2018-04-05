@@ -16,27 +16,27 @@
                             <tbody>
                                 <tr>
                                     <td><i class="fa fa-server"></i></td>
-                                    <td>Service Type</td>
+                                    <td><strong>Type</strong></td>
                                     <td>{{service_type}}</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-thermometer-three-quarters"></i></td>
-                                    <td>Progress Status</td>
+                                    <td><strong>Progress Status</strong></td>
                                     <td>{{progress_status}}</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-file"></i></td>
-                                    <td>File Path</td>
+                                    <td><strong>File Path</strong></td>
                                     <td>{{file_path}}</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-user"></i></td>
-                                    <td>Designer</td>
+                                    <td><strong>Designer</strong></td>
                                     <td>{{designer}}</td>
                                 </tr>
                                 <tr>
                                     <td><i class="fa fa-amazon"></i></td>
-                                    <td>Amazon Link</td>
+                                    <td><strong>Amazon Link</strong></td>
                                     <td>{{amazon_link}}</td>
                                 </tr>
                             </tbody>
@@ -47,7 +47,7 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><i class="fa fa-sticky-note"></i> Notes</h5>
+                        <h5 class="card-title"><i class="fa fa-sticky-note"></i> <strong>Notes</strong></h5>
                         <hr>
                         <p class="card-text">{{notes}}</p>
                     </div>
