@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar />
-    <div class="container">
+    <div class="container content-container">
       <router-view/>
     </div>
     <Footer />
@@ -21,7 +21,15 @@ export default {
 </script>
 
 <style>
+body {
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+}
 #app {
   font-family: 'Raleway', sans-serif;
+}
+.content-container {
+  padding-bottom: 6em;
 }
 </style>
