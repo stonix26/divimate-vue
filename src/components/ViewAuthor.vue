@@ -12,11 +12,11 @@
                 <div class="card bg-light">
                     <div class="card-header bg-dark text-white display-4"><i class="fa fa-user-circle"></i> {{author_name}}</div>
                     <div class="card-body">
-                        <table class="table table-hover">
+                        <table class="table borderless table-hover">
                             <tbody>
                                 <tr>
                                     <td><i class="fa fa-server"></i></td>
-                                    <td><strong>Type</strong></td>
+                                    <td><strong>Service Type</strong></td>
                                     <td>{{service_type}}</td>
                                 </tr>
                                 <tr>
@@ -131,5 +131,8 @@
 }
 .btn-outline-danger {
     margin-right: 10px !important;
+}
+.borderless td {
+    border: none;
 }
 </style>
