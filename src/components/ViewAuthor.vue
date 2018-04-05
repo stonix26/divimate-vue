@@ -2,8 +2,9 @@
     <div id="view-author">
         <div class="row">
             <div class="col-md-12">
+                <router-link to="/" class="btn btn-dark"><i class="fa fa-long-arrow-left"></i> Back</router-link>
                 <router-link to="/" class="btn btn-dark float-right"><i class="fa fa-pencil"></i> Update {{author_name}}'s details</router-link>
-                <router-link to="/" class="btn btn-outline-danger float-right"><i class="fa fa-trash"></i> Delete</router-link>
+                <button @click="deleteAuthor" class="btn btn-outline-danger float-right"><i class="fa fa-trash"></i> Delete</button>
             </div>
         </div>
         <div class="row">
@@ -108,6 +109,17 @@
                         this.slug = doc.data().slug;
                     })
                 })
+            },
+
+            deleteAuthor() {
+                if(confirm('Are you sure you want to delete this?')) {
+                    db.collection('authors').where('slug', '==', this.$route.params.slug).get().then(querySnapshot => {
+                        querySnapshot.forEach(doc => {
+                            doc.ref.delete();
+                            this.$router.push('/');
+                        })
+                    })
+                }
             }
         }
     }
