@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/components/Dashboard'
 import NewAuthor from '@/components/NewAuthor'
-import EditAuthor from '@/components/EditAuthor'
+import UpdateAuthor from '@/components/UpdateAuthor'
 import ViewAuthor from '@/components/ViewAuthor'
 
 Vue.use(Router)
@@ -20,9 +20,9 @@ export default new Router({
       component: NewAuthor
     },
     {
-      path: '/edit-author/:author_id',
-      name: 'edit-author',
-      component: EditAuthor
+      path: '/update-author/:slug',
+      name: 'update-author',
+      component: UpdateAuthor
     },
     {
       path: '/:slug',

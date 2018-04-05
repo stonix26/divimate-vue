@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <router-link to="/" class="btn btn-dark"><i class="fa fa-long-arrow-left"></i> Back</router-link>
-                <router-link to="/" class="btn btn-dark float-right"><i class="fa fa-pencil"></i> Update {{author_name}}'s details</router-link>
+                <router-link v-if="slug" v-bind:to="{ name: 'update-author', params: { slug: slug } }" class="btn btn-dark float-right"><i class="fa fa-pencil"></i> Update {{author_name}}'s details</router-link>
                 <button @click="deleteAuthor" class="btn btn-outline-danger float-right"><i class="fa fa-trash"></i> Delete</button>
             </div>
         </div>
