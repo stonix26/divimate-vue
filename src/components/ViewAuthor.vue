@@ -49,7 +49,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><i class="fa fa-sticky-note"></i> <strong>Notes</strong></h5>
                         <hr>
-                        <p class="card-text">{{notes}}</p>
+                        <p class="card-text" v-html="notes"></p>
                     </div>
                 </div>
             </div>

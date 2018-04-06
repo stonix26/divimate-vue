@@ -1,5 +1,5 @@
 <template>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center justify-content-sm-center">
         <div class="card bg-light mb-3">
             <div class="card-header">
                 <img src="./../assets/DNWC-logo-1.png" alt="logo" class="logo-img" >
