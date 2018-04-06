@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-md-7">
                 <form @submit.prevent="updateAuthor">
                     <div class="form-group">
                         <label>Author's Name</label>
@@ -64,6 +64,14 @@
                     <router-link v-if="slug" v-bind:to="{ name: 'view-author', params: { slug: slug } }" class="btn btn-outline-dark btn-lg"><i class="fa fa-arrow-left"></i> Cancel</router-link>
                     <button type="submit" class="btn btn-dark btn-lg"><i class="fa fa-cloud"></i> Save</button>
                 </form>
+            </div>
+            <div class="col-md-5">
+                <div class="card bg-light mb-3">
+                    <div class="card-header"><i class="fa fa-search"></i> Notes Live Preview</div>
+                    <div class="card-body">
+                        <div v-html="notes"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
