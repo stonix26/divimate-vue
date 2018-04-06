@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group col-md-12">
                             <label>Notes</label>
-                            <textarea v-model="notes" class="form-control" rows="8" required></textarea>
+                            <vue-editor v-model="notes" required></vue-editor>
                         </div>
                     </div>
                     <router-link v-if="slug" v-bind:to="{ name: 'view-author', params: { slug: slug } }" class="btn btn-outline-dark btn-lg"><i class="fa fa-arrow-left"></i> Cancel</router-link>
@@ -71,8 +71,12 @@
 
 <script>
 import db from './firebaseInit'
+import { VueEditor } from 'vue2-editor'
 export default {
     name: 'update-author',
+    components: {
+        VueEditor
+    },
     data() {
         return {
             author_name: null,
