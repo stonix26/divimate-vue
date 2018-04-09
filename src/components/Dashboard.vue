@@ -38,7 +38,7 @@
 <script>
 import db from './firebaseInit'
 export default {
-    name: 'Dashboard',
+    name: 'dashboard',
     data() {
         return {
             authors: [],
