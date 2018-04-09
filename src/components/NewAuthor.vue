@@ -66,7 +66,7 @@
                 </form>
             </div>
             <div class="col-md-5">
-                <div class="card bg-light mb-3">
+                <div v-if="notes" class="card bg-light mb-3">
                     <div class="card-header"><i class="fa fa-search"></i> Notes Live Preview</div>
                     <div class="card-body">
                         <div v-html="notes"></div>
