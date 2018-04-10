@@ -32,4 +32,8 @@ body {
 .content-container {
   padding-bottom: 6em;
 }
+.form-control:focus {
+  border-color: #000000;
+  box-shadow: none;
+}
 </style>
