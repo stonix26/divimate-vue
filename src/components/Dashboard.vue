@@ -17,19 +17,22 @@
                     <th scope="col">File Path</th>
                     <th scope="col">Designer</th>
                     <th scope="col">Amazon Link</th>
-                    <th scope="col" class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="author in authors" v-bind:key="author.id">
+                <router-link
+                    v-for="author in authors"
+                    v-bind:key="author.id"
+                    v-bind:to="{name: 'view-author', params: {slug: author.slug}}"
+                    class="author-row"
+                    tag="tr">
                     <td>{{author.author_name}}</td>
                     <td>{{author.service_type}}</td>
                     <td>{{author.progress_status}}</td>
                     <td>{{author.file_path}}</td>
                     <td>{{author.designer}}</td>
                     <td>{{author.amazon_link}}</td>
-                    <td class="text-center"><router-link v-bind:to="{name: 'view-author', params: {slug: author.slug}}"><i class="fa fa-eye"></i></router-link></td>
-                </tr>
+                </router-link>
             </tbody>
         </table>
     </div>
@@ -72,5 +75,8 @@ export default {
 }
 .fa-eye {
     color: #343a40;
+}
+.author-row {
+    cursor: pointer;
 }
 </style>
